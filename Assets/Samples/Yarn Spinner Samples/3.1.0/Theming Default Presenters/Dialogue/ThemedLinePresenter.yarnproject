@@ -1,0 +1,12 @@
+{
+  "projectFileVersion": 3,
+  "sourceFiles": [
+    "all_sheets.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*"
+  ],
+  "localisation": {},
+  "baseLanguage": "ko-KR",
+  "compilerOptions": {}
+}

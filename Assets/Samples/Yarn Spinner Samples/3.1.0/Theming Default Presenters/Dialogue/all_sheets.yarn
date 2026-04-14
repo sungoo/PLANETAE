@@ -1,0 +1,446 @@
+title: Start
+---
+<<declare $affinity_boss = 0>>
+<<declare $affinity_brom = 0>>
+<<declare $affinity_stella = 0>>
+<<declare $Fekora_hint = 0>>
+
+Narration: 플라네타에 은하계에 도착
+<<description_cue 시스템 메시지. 워프 안정성: (불빛표시 - 노란색/자막: 양호)>>
+Narration: 지금 플라네타에 은하계의 중심 행성 포디나 로 워프할까요?
+Player: 드디어 진입이네....
+Narration: (버튼이 하나만 뜬다.) '예'
+Narration: 워프 발ㄷ
+<<description_cue 시스템 메시지가 뜨다 끊긴다. 워프 안정성: 빨간색으로 변하고 계기판이 마구 흔들린다. (자막: 워프 안정성 - 불안정)>>
+Player: ?!
+Narration: 불안정한 느낌의 회오리같은 워프로 빨려들어가는 함선.
+Player: '젠장, 말로만 듣던 워프 비상 이탈을 하필 연구하러 와서 겪다니...!'
+Narration: Black out
+<<divider 루스 도착>>
+Narration: 쾅!!
+Player: 콜록, 콜록...
+<<description_cue 유저 시점이 깜빡이며 흔들린다. 낯선 쓰레기 잔해가 보인다.>>
+Narration: (유저 조작 가능한 탑뷰로 이동)
+<<description_cue 유저가 타고온 선체가 작은 가게 지붕에 처박혀 있다. 선체 앞창이 깨져있고 조종석 에어백이 부풀어 유저가 튕겨 떨어졌음을 짐작할 수 있다.>>
+Player: (유저가 시야를 돌리면 읽을 수 없는 언어로 적힌 찌그러진 간판이 보인다.)
+<<description_cue HUD(헤드업디스플레이)에 시스템 팝업: 번역 프로그램 로딩중.... (44%/100%)>>
+Narration: 곧  간판이 읽힌다. '이러쿵저러쿵 만물상'.
+Narration: (부스럭)
+Narration: 사장님이 천천히 지붕이 반파된 가게에서 걸어나온다.
+사장님: (유저는 보지도 않은 채 반파된 지붕을 올려다본다.)
+사장님: 젠장, 또? 한동안 조용하다 했지.
+Narration: 시스템 팝업이 뜬다. '번역 프로그램 로딩 완료'
+<<description_cue HUD 화면이 전부 정렬되며 읽을 수 있게된다. 현재 위치: 플라네타에 은하계 - 위성 루스. 상세 설명: 플라네타에 은하계의 변방 구역으로 최외곽 지역입니다. (....) 논문 D-Day: 22일>>
+Narration: 게임 타이틀 등장
+Narration: 타이틀 fade out 후 유저 조작 가능해짐
+Player: 저...
+-> 저기요?
+    <<set $affinity_boss -= 1>>
+    사장님: 뭐야.
+    <<description_cue 유저를 돌아본다.>>
+    사장님: 조종사가 살아있었어?
+    <<jump gongtong1>>
+-> 죄송합니다... 워프 비상 오류가 날 줄 몰랐어요.
+    <<set $affinity_boss += 1>>
+    사장님: 음?
+    <<description_cue 유저를 돌아본다.>>
+    사장님: 운이 좋군, 선체가 저 모양인데 살아남다니.
+    <<jump gongtong1>>
+===
+
+title: gongtong1
+---
+사장님: 그럼 보상안 얘기를 해야겠지?
+Player: '윽....'
+<<description_cue HUD: 인게임 재화 수 제로에 가까운 게 깜빡인다.>>
+Player: (자초지종을 설명하는 유저 액션)
+사장님: 뭐, 보험도 들지 않고 왔다고? 학생이라 가난해서?
+사장님: (분통 터지는 듯 한숨)
+Narration: 코모도왕도마뱀 수인의 갸름한 눈동자가 User의 위아래를 훑습니다.
+<<description_cue (쭈뼛)>>
+사장님: (작게 한숨)
+사장님: 어쩔 수 없지. 일단 들어와.
+Narration: (가게 내부로 이동. 기본 UI 화면.)
+사장님: 학생이라고 사정 봐주기엔 이쪽도 먹고 사느라 바쁘다고.
+사장님: (묵직한 수리도구 상자를 테이블 위에 내려놓는다.)
+사장님: 다행히 이 위성은 외곽지지만, 무슨 유행인지... 방문객이 끊이지 않아.
+사장님: (상자를 열어보길 기다린다.)
+Player: (유저 액션으로 상자가 열린다.)
+사장님: 기간 안에 연구도 해야하고, 워프  선체도 수리하고, 나한테 보상도 해줘야 하잖아? 
+<<description_cue 마지막 말에 강조점이 찍힌다. (볼드 처리등)>>
+Player: 네... 도의적으로는....
+-> 그런데 제가 연구 일정이랑 수리만으로도 바쁠 텐데 (방어적으로 팔짱을 낀다)
+    <<set $affinity_boss -= 1>>
+    사장님: 남의 생업을 끊어놓고 그런 말이 나와?
+    <<description_cue 퉁명스럽게 상자를 툭툭 친다.>>
+    <<jump gongtong2>>
+-> 무슨 방법이 있을까요?
+    <<set $affinity_boss += 1>>
+    사장님: 돈을 벌어야지.
+    <<description_cue 상자를 톡톡 가리킨다.>>
+    <<jump gongtong2>>
+===
+
+title: gongtong2
+---
+사장님: 일감은 계속 들어올거야.
+사장님: 나머지는 자네 일머리에 달렸지.
+사장님: 이 근방 위성들 중에 만물수리가 가능한 만물상은 여기밖에 없어서 손님들이 꽤 몰리거든.
+Player: 그러면
+Player: 저더러 여기서 일을 하라는...?
+사장님: 의식주 정돈 제공해주지. 
+<<description_cue (퉁명스러운 표정)>>
+사장님: 은하계 표준 근로법에 따라 주는 임금으로 알아서 해보라고.
+사장님: 의외로 자네가 한다는 고대...? 미생물? 무슨 연구에도 도움이 될거라고.
+Player: '연구에 방해가 아니라 오히려 도움이 된다면....'
+사장님: 자, 자네가 쓸만한지나 한 번 보자고.
+Narration: 퍼즐 튜토리얼로 이동.
+-> 푸는 데 n초 이상
+    사장님: 으음....
+    <<description_cue 탁탁 테이블을 두드린다>>
+    사장님: 영 못미덥지만 어쩔 수 없지.
+    <<jump gongtonga>>
+-> 푸는 데 n초 미만
+    사장님: 흠....
+    <<description_cue 의외라는 듯 팔짱을 끼며>>
+    사장님: 생각보다 제법이군.
+    <<jump gongtonga>>
+===
+
+title: gongtonga
+---
+사장님: 자.
+<<description_cue HUD 화면에 화폐 재화가 올라간다.>>
+사장님: 수수료를 제외하고 네가 받을 일당은 3000오어(Ore)야.
+Player: 3000오어....
+-> 이것 밖에 안되는 군요...
+    <<set $affinity_boss -= 1>>
+    사장님: 하하하.
+    <<description_cue 콧방귀를 뀐다.>>
+    <<jump gongtongb>>
+-> 열심히 해봐야겠네요...
+    <<set $affinity_boss += 1>>
+    사장님: 뭐.
+    <<description_cue 가볍게 어깨를 들썩인다.>>
+    <<jump gongtongb>>
+===
+
+title: gongtongb
+---
+사장님: 부지런히 일을 익혀보라고.
+System: HUD 화면에 추가 재화가 올라간다.
+<<description_cue 1000Ore 추가>>
+Player: ...?
+사장님: 일을 익히려면 이 외진 행성의 지리 정도는 익혀둬야겠지?
+사장님: 마침 사올 소모품들이 좀 있거든.
+사장님: 태블릿은 있나? 은하계 공통OS 정돈 쓰겠지?
+System: 태블릿창이 반쯤 올라온다.
+<<description_cue 유저가 고개를 끄덕이는 카메라 모션>>
+System: 태블릿 창이 전면에 뜬다. 
+System: 연락처 추가: 사장님
+System: 발신인: 사장님
+사올 소모품 리스트
+첨부 DB: 루스 중심가 지도
+사장님: 딴 길로 세지말고 돌아오도록 해.
+<<description_cue 살짝 헛기침한다.>>
+사장님: 외지인한테 친절한 놈들만 있는 곳은 아니라고.
+System: 유저 탑뷰 시작.
+Narration: 자, 시장으로 가볼까.
+<<jump yujeoidonggyeongro>>
+===
+
+title: yujeoidonggyeongro
+---
+-> 유저가 유도된 길로 감
+    System: 유저의 조작 이동 진행
+    System: 시장 진입
+    Narration: 루스 시장... 여긴가?
+    System: 유저의 뷰가 바로 목적지 도매상으로 향한다.
+    System: 도매상으로 들어가는 유저 뒷모습.
+    System: Ore가 줄어들고 소모품_____를 겟했다는 정보 HUD에 뜸
+    System: 유저가 도매상에서 나온다.
+    Player: 이제 다시 돌아가려면....
+    스텔라: 끙.... 
+    스텔라: 끄으으응....
+    Player: ?
+    <<description_cue 유저의 시선이 왼쪽으로 돌아간다.>>
+    <<divider 스텔라 등장>>
+    System: 스텔라 등장 컷씬 시작
+    스텔라: 유저 뷰 카메라가 골목 구석에 철푸덕 양반 다리로 앉아 있는 스텔라를 줌인한다. 
+    스텔라: 아이 참....
+    <<description_cue 풀 죽은 모양새로, 캠코더를 달칵거리고 있는 스텔라.>>
+    <<description_cue 유저의 시선을 느꼈는지 고개를 들고 곧 눈이 마주친다. 활달해 보이는 지유옴.>>
+    스텔라: 당신!
+    Player: ?!
+    <<description_cue 움찔>>
+    스텔라: 앗, 도망가지 말아요! 안 해쳐요!
+    <<description_cue 스텔라가 얼른 한 손엔 캠코더, 한 손엔 어설프게 생긴 드라이버를 든 양 손을 들어보인다. 귀여운 인상을 주는 지유옴.>>
+    System: 컷씬 종료
+    Player: ......
+    -> 제가 외지인이긴 한데, 캠코더랑 캐스터 건을 구분 못할 정도로 백치는 아닙니다.
+        <<set $affinity_stella += 1>>
+        스텔라: ...
+        <<description_cue 잠깐 멍한 표정을 지었던 스텔라가 깔깔 웃는다.>>
+        스텔라: 당신 골때리는 사람이네!
+        <<jump gongtongc>>
+    -> ... 당연히 구식 캠코더랑 장난감 같은 드라이버로 저를 공격하진 못하겠죠.
+        <<set $affinity_stella -= 1>>
+        스텔라: ...
+        <<description_cue 흥이 죽은 듯 심드렁하게 손을 내린다.>>
+        스텔라: 알면 됐어!
+        <<jump gongtongc>>
+    -> ... 그런데 무슨 용건이라도?
+        스텔라: 에이, 좀 더 놀라주면 안돼?
+        <<jump gongtongc>>
+-> 유저가 다른 길로 움직임
+    Player: 어라.
+    <<description_cue 유저 움직임 멈칫>>
+    Narration: 사장님이 알려준 길이 아니다....
+    Narration: 목적지로만 가자. 시간이 없어.
+    <<jump yujeoidonggyeongro>>
+===
+
+title: gongtongc
+---
+스텔라: 당신도 외지인인 것 같은데, 여기 지리를 잘 아나봐?
+스텔라: ... 그, 혹시 나 알아보나?
+Player: 네? 안면인식 장애는 아닌데요.
+스텔라: ...
+스텔라: 모른다고 말을 해.
+스텔라: 사실 나는 플라네타에 VRU 서버 브이로거야. 이름은 스텔라.
+Player: VRU....
+Narration: 이 은하계에서 유행하는 체험형 유저 제작 콘텐츠 플랫폼인 듯 합니다.
+Narration: (당신이 시청한 적 없는.)
+-> (난감한 얼굴로 미안한 티를 낸다.)
+    <<set $affinity_stella += 1>>
+    스텔라: 에이~
+    <<description_cue 손을 휘저으며 킬킬 웃는다.>>
+    <<jump gongtongd>>
+-> 그, 유명한 스트리머들이라면 좀 들어봤는데....
+    <<set $affinity_stella -= 1>>
+    스텔라: ... 내가 안 유명하단 소리야? 기준이 높네~
+    <<jump gongtongd>>
+===
+
+title: gongtongd
+---
+스텔라: 날 알든 모르든, 좀 도와주는 건 가능할 것 같은데.
+Player: ?
+<<description_cue 유저 아이콘(아바타?) 위로 물음표가 뜬다.>>
+스텔라: 이거 봐.
+<<description_cue 캠코더와 어설픈 드라이버를 흔들어 보인다.>>
+스텔라: 이 캠코더는 좀 구식이지만, 원랜 잘 돌아갔는데....
+스텔라: 워프를 넘어오는 길에 무슨 영향을 받았는지 갑자기 먹통이 됐어.
+Narration: 곰곰히 생각해 봅니다.
+Player: 마지막으로 들른 곳이 어디죠?
+스텔라: 호루투스... 식물이 많은....
+스텔라: 아!
+스텔라: 그 영향인가?
+<<description_cue 시무룩하게 고개를 숙인다.>>
+Player: 식물이 많은 행성이라면, 기본 습도도 아날로그 기계한테 친절하지 않죠.
+스텔라: 이 근방은 물자 유통이 적어서 신식 캠코더는 엄청 비쌀 텐데... 그런 예산은 없어.
+Narration: 당신은 슬쩍 그녀의 캠코더를 들여다봅니다.
+Narration: 구형이긴 하지만 조립식이니, 어쩌면....
+Player: 제가 수리상에서 일을 하는데,
+-> 안내해드릴까요?
+    <<jump gongtonge>>
+-> 저희 사장님이라면 뭔가 알고 계실지도....
+    <<jump gongtonge>>
+===
+
+title: gongtonge
+---
+스텔라: !!
+<<description_cue 스텔라의 고개가 번쩍 들리며 아이콘 위로 느낌표가 뜬다.>>
+스텔라: 역시 당신이 날 도와줄 수 있을 줄 알았어!
+스텔라: 내가 감이 좋거든.
+Player: 하하....
+<<description_cue 식은땀을 흘리며 어색하게 웃는 것처럼 보이는 스탠드>>
+Player: 그럼 이쪽으로....
+System: 화면 블랙 아웃. 다음 챕터로.
+System: 화면 밝아지며 가게 기본 UI.
+사장님: 음?
+<<description_cue 부서진 내부 천장을 보던 사장님이 유저(와 스텔라) 방향을 바라본다.>>
+사장님: 오호라.
+<<description_cue 킬킬 웃는다.>>
+사장님: 나가자 마자 손님을 유인해오다니, 영 쓸모없는 녀석은 아니군.
+Player: 아, 우연히....
+<<description_cue 뒤통수를 벅벅 긁는다.>>
+스텔라: 아저씨가 여기 사장님?
+<<description_cue 불쑥 끼어드는 느낌으로.>>
+사장님: 그렇다만,
+<<description_cue 유저쪽을 힐끗인다.>>
+사장님: 실무는 우리 직원이 봐줄 거다.
+Player: ?!
+<<description_cue 스텔라가 유저 쪽으로 돌아선다.>>
+스텔라: 잘 부탁해!
+<<description_cue 생글생글 웃는 스텔라.>>
+Player: ......
+<<description_cue 슬쩍 사장님을 쳐다본다.>>
+사장님: ?
+<<description_cue 천연덕스럽게 유저를 바라보는 사장님.>>
+Player: 그...
+-> 열심히 해볼게요....
+    <<set $affinity_boss += 1>>
+    사장님: 큼, 큼.
+    <<description_cue 웃음을 참는 얼굴을 짓곤 무너진 가게 천장으로 다시 시선을 돌린다.>>
+    스텔라: 그래주면 고맙지!
+    <<description_cue 생글생글 웃으며 캠코더와 배터리를 내민다.>>
+    <<jump peojeuljinhaeng>>
+-> 별로 배운 건 없지만....
+    <<set $affinity_boss -= 1>>
+    <<set $affinity_stella -= 1>>
+    사장님: 쯧.
+    <<description_cue 혀를 짧게 차고는 다시 무너진 가게 천장으로 시선을 돌린다.>>
+    스텔라: ... 뭐, 그래도 방법이 없으니까.
+    <<description_cue 찝찝한 표정을 짓고는 카메라와 배터리를 내민다.>>
+    <<jump peojeuljinhaeng>>
+===
+
+title: peojeuljinhaeng
+---
+Narration: 알 수 없는 씨앗이 뿌리를 내렸다....
+Narration: 스텔라도 뭔지 모르는 것이라고 한다.
+Narration: 그렇다면 일단 수집해둘까.
+System: '도감' 기능 해금. 미확인 생물체 (발아된 씨 실루엣) 획득.
+System: 퍼즐 진행 완료
+Player: 저...
+<<description_cue 유저가 느긋하게 가게를 구경중이던 스텔라를 부른다. 캠코더를 내밀며.>>
+스텔라: 우와!
+<<description_cue 캠코더를 받아든다.>>
+스텔라: 감쪽같이 고쳐줬네!
+스텔라: 정말 고마워!
+<<description_cue 아주 기쁘게 웃는다. (아주 사랑스러운 느낌)>>
+Player: 아뇨, 뭐.... 제 할 일을 한 거고.
+<<description_cue 뒤통수를 벅벅 긁는다.>>
+스텔라: 계산해야겠지?
+<<if $affinity_stella>=1>>
+    System: HUD의 보유자금이 올라간다. 기존 3,000 ore + 12,000 ore = 15,000
+    Player: !
+    Player: 이렇게 많이...?
+    스텔라: 친절하게 안내해준 팁까지 포함이라고 칠게!
+    <<description_cue 헤헤 웃는다>>
+    <<jump gongtongf>>
+<<elseif $affinity_stella==0>>
+    System: HUD의 보유자금이 올라간다. 기존 3,000 ore + 10,000 ore = 13,000
+    Narration: 직접 받아온 의뢰에 수수료를 떼이지 않으니 그럭저럭 괜찮은 금액입니다.
+    Player: 감사합니다.
+    스텔라: 이 정도로 뭘.
+    <<jump gongtongf>>
+<<elseif $affinity_stella<0>>
+    System: HUD의 보유자금이 올라간다. 기존 3,000 ore + 8,000 ore = 11,000
+    Narration: 이 정도면 사장님의 수주를 받는 것보단 조금 낫군요.
+    Player: 고마워요.
+    스텔라: 덕분에 살았어.
+    <<description_cue 캠코더를 들여다보느라 정신 없는듯.>>
+    <<jump gongtongf>>
+<<endif>>
+===
+
+title: gongtongf
+---
+스텔라: 여기 괜찮네.
+<<description_cue 가게를 둘러보며, 유저를 포함한 기본 UI를 캠코더 화면에 담는다.>>
+사장님: 산성비가 들이칠 저 구멍은 안 보이나?
+<<description_cue 퉁명스럽게.>>
+스텔라: 손님 입장에서 말이에요, 손님 입장에서!
+<<description_cue 넉살 좋게 웃는다.>>
+스텔라: 게다가 루스는 외딴 곳이라 현지 정보가 없어서, 이런 곳이 있다는 걸 알려주면 구독자들한테 도움이 된다고요.
+Narration: 스텔라가 가게 구석구석을 카메라에 담는 동안, 당신은 뻘쭘하게 슬쩍 렌즈 밖으로 벗어나려 애씁니다.
+Narration: (큰 소용은 없는 듯 하군요.)
+스텔라: 흠, 맞다. 태블릿 있지?
+<<description_cue 유저에게 말하며 태블릿을 꺼내든다.>>
+Player: 아. 네.
+<<description_cue 허둥지둥 태블릿을 꺼낸다.>>
+System: 태블릿 화면.
+System: 연락처에 "스텔라"가 추가된다.
+스텔라: 그럼 다음에 봐!
+<<description_cue 유쾌하게 손을 흔들며 스텔라가 가게를 떠난다.>>
+System: 블랙아웃.
+System: 다시 밝아지는 화면
+Narration: 며칠이 흐른다.
+<<description_cue D-22, D-21, D-20..... HUD의 날짜가 바뀌는 연출>>
+System: 가게 기본 UI
+손님1: 이것 좀 고쳐주세요.
+System: 퍼즐 진행
+-> 퍼즐잘함(이물질 성하게 꺼냄)
+    <<set $Fekora_hint += 1>>
+    <<jump peojeul_jinhaeng_kkeut>>
+-> 퍼즐못함
+    <<jump peojeul_jinhaeng_kkeut>>
+===
+
+title: peojeul_jinhaeng_kkeut
+---
+손님1: 감사합니다!
+<<description_cue 손님 1이 떠난다.>>
+System: HUD: 8,000 Ore 획득 추가.
+Narration: 뭔지 모를 이물질을 발견했다....
+Narration: 연구자로서 일단 챙겨둬야겠지.
+System: '미확인 이물질' 획득
+<<description_cue 인벤토리 안내>>
+System: D-19, D-18.... HUD 날짜가 다시 바뀐다.
+손님2: 이거 진짜 아끼는 건데... 고칠 수 있을까요?
+System: 퍼즐 진행
+-> 퍼즐잘함
+    <<set $Fekora_hint += 1>>
+    <<jump peojeul_jinhaeng_kkeut_2>>
+-> 퍼즐못함
+    <<jump peojeul_jinhaeng_kkeut_2>>
+===
+
+title: peojeul_jinhaeng_kkeut_2
+---
+손님2: 제 은인이세요! 감사합니다!
+<<description_cue 손님이 떠난다.>>
+System: HUD: 10,000 Ore 획득 추가.
+Narration: 뭔지 모를 이물질을 발견했다....
+Narration: 연구자로서 역시....
+System: '미확인 이물질' 획득 (실루엣이 다름)
+Player: 휴, 이래서야 언제 다 모으련지....
+<<description_cue 공구함을 치우기 시작한다.>>
+System: 브롬 등장  컷씬 시작
+<<divider 브롬 등장>>
+System: 가게 기본 UI
+<<description_cue 브롬 손에 쥔 태블릿 화면: 스텔라의 VRU 브이로그 화면 속 수리상 UI, 주인공 클로즈업. 다른 손으로 문을 밀고 들어선다.>>
+Narration: 딸랑~
+<<description_cue 가게 종소리.>>
+브롬: 저기...
+<<description_cue 말쑥하고 단정한 차림의 캐릭터 스탠드.>>
+브롬: 여기 아직 영업하시나,
+브롬: 어! 진짜 여기 있었네....
+<<description_cue 유저를 본 브롬이 멈칫하며 유저를 바라본다.>>
+System: 브롬 컷씬 종료
+Player: 영업은 하는데...
+-> 저를 아세요?
+    <<set $affinity_brom -= 1>>
+    브롬: 저, 그... 혹시 레나원 대학교 학생 아니에요?
+    <<description_cue 조금 조심스럽게 묻는다.>>
+    Player: 아, 네.
+    <<description_cue 약간의 딜레이 후>>
+    <<jump gongtongg>>
+-> 어, 우리 어디서 만난 적 있나요?
+    <<set $affinity_brom += 1>>
+    Player: 학교에선가...?
+    <<jump gongtongg>>
+===
+
+title: gongtongg
+---
+브롬: 행성간생명계보연구학과, 제가 2년 선배일 텐데.
+Player: 아하...!
+Player: 여기서 만나다니, 우연이네요.
+브롬: 대학원까지 선후배로 봐서 기억하고 있었어요.
+브롬: 우리과, 연구쪽으로는 다들 많이 안 오니까.
+<<description_cue 자조적으로 웃는다.>>
+Player: 하하...
+Player: 아, 그런데.
+<<description_cue 문득 생각난 듯이>>
+Player: 제가 여기 있을 줄 알고 계셨어요?
+브롬: 아, 그게....
+<<description_cue 브롬이 얼굴을 긁적인다.>>
+Narration: 그가 들고 있던 태블릿을 내밉니다.
+<<description_cue 화면 전환 - 스텔라가 셀카처럼 기본 UI (사장님과 유저가 있는 화면)위로 얼굴을 불쑥 내민 VRU 정지 화면이 나타난다.>>
+Narration: ... 당신은 말없이 태블릿을 선배에게 돌려줍니다.
+Narration: 중단
+===
