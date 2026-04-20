@@ -14,10 +14,12 @@ Narration: (버튼이 하나만 뜬다.) '예'
 Narration: 워프 발ㄷ
 <<description_cue 시스템 메시지가 뜨다 끊긴다. 워프 안정성: 빨간색으로 변하고 계기판이 마구 흔들린다. (자막: 워프 안정성 - 불안정)>>
 Player: ?!
+<<ChangeBG "워프 오류">>
 Narration: 불안정한 느낌의 회오리같은 워프로 빨려들어가는 함선.
 Player: '젠장, 말로만 듣던 워프 비상 이탈을 하필 연구하러 와서 겪다니...!'
 Narration: Black out
 <<divider 루스 도착>>
+<<ChangeBG "가게 추락">>
 Narration: 쾅!!
 Player: 콜록, 콜록...
 <<description_cue 유저 시점이 깜빡이며 흔들린다. 낯선 쓰레기 잔해가 보인다.>>

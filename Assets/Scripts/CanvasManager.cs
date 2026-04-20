@@ -18,17 +18,24 @@ public class CanvasManager : MonoBehaviour
             "Fade_Out",
             FadeOut
         );
+        DialogueRunner.AddCommandHandler<string>(
+            "ChangeBG",
+            ChangeBG
+        );
     }
 
-    //[YarnCommand("Fade_In")]
     public void FadeIn(float t)
     {
         BackGroundManager.FadeIn(t);
     }
 
-    //[YarnCommand("Fade_Out")]
     public void FadeOut(float t)
     {
         BackGroundManager.FadeOut(t);
+    }
+
+    public void ChangeBG(string str)
+    {
+        BackGroundManager.ChangeBG(str);
     }
 }
