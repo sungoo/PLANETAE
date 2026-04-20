@@ -1,21 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BackGroundManager : MonoBehaviour
 {
+    [Header("Image Settings")]
     public Image[] BackGrounds;
-    public Texture2D[] BackGroundSprites;
-    public RawImage bgScreen;
     public Image FadeScreen;
     public Image FlashScreen;
 
     private Dictionary<string, Image> BGdict;
+
+    [Header("Raw Image Settings")]
+    public RawImage bgScreen;
+    public Texture2D[] BackGroundSprites;
     private Dictionary<string, Texture2D> Flashdict;
+
+    private Rect regularRect;
+    private Rect longRect;
 
     private void Start()
     {
+        regularRect = new Rect(0, 0, 1, 1.91f);
+        longRect = new Rect(0, 0, 1, 1);
+
         BGdict = new Dictionary<string, Image>();
         BGdict.Add("플라네타에 은하", BackGrounds[0]);
         BGdict.Add("워프 오류", BackGrounds[1]);
@@ -27,6 +37,7 @@ public class BackGroundManager : MonoBehaviour
         Flashdict.Add("가게 추락", BackGroundSprites[2]);
 
         bgScreen.texture = BackGroundSprites[0];
+        bgScreen.uvRect.Set(0, 0, 1, 1.91f);
     }
 
     public void FadeIn(float fadeTime)
@@ -75,6 +86,16 @@ public class BackGroundManager : MonoBehaviour
         Texture2D texture = null;
         if (!Flashdict.TryGetValue(str, out texture))
             bgScreen.texture = BackGroundSprites[0];
+        
+        if (texture == BackGroundSprites[2])
+        {
+            Debug.Log("rect set");
+            //분명 여기 들어가는데, 왜 안되지
+            bgScreen.uvRect.Set(0, 0, 1, 1);
+        }
+        else
+            bgScreen.uvRect.Set(0, 0, 1, 1.91f);
+
         bgScreen.texture = texture;
     }
 }

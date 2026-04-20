@@ -219,6 +219,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 898537672805521183, guid: a82d54dec7ece9f49b0c20409b938d73, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2080
+      objectReference: {fileID: 0}
     - target: {fileID: 3789867503712059918, guid: a82d54dec7ece9f49b0c20409b938d73, type: 3}
       propertyPath: m_Name
       value: Dialogue System
@@ -291,6 +295,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5246786074989423560, guid: a82d54dec7ece9f49b0c20409b938d73, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246786074989423560, guid: a82d54dec7ece9f49b0c20409b938d73, type: 3}
+      propertyPath: m_UVRect.height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246786074989423560, guid: a82d54dec7ece9f49b0c20409b938d73, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8745293624771954884, guid: a82d54dec7ece9f49b0c20409b938d73, type: 3}
       propertyPath: m_SizeDelta.x
       value: 39.999985
@@ -330,6 +346,10 @@ PrefabInstance:
     - target: {fileID: 8745293624928910882, guid: a82d54dec7ece9f49b0c20409b938d73, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745293624928910882, guid: a82d54dec7ece9f49b0c20409b938d73, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.8818359
       objectReference: {fileID: 0}
     - target: {fileID: 8745293624928910885, guid: a82d54dec7ece9f49b0c20409b938d73, type: 3}
       propertyPath: m_Enabled
