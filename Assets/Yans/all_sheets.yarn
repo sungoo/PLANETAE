@@ -5,6 +5,7 @@ title: Start
 <<declare $affinity_stella = 0>>
 <<declare $Fekora_hint = 0>>
 
+<<ChangeBG "플라네타에 은하">>
 <<Fade_In 1.0>>
 Narration: 플라네타에 은하계에 도착
 <<description_cue 시스템 메시지. 워프 안정성: (불빛표시 - 노란색/자막: 양호)>>

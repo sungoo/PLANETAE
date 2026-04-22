@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 296d7e69b2710b146b235b5925a6ab27
+guid: 9107934b0c48e894aa3fd0fd6f0708e0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -857477210408051006
-    second: bossLine1-1_0
+      213: 1512858672113945240
+    second: WrongBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bossLine1-1_0
+      name: WrongBG_0
       rect:
         serializedVersion: 2
-        x: 185
-        y: 579
-        width: 794
-        height: 1767
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ce92ae2501a914f0800000000000000
-      internalID: -857477210408051006
+      spriteID: 89a88b262f0cef410800000000000000
+      internalID: 1512858672113945240
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bossLine1-1_0: -857477210408051006
+      WrongBG_0: 1512858672113945240
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e1bdee435d45f4b9b13878a21219ad, type: 3}
+  m_Name: "1.\uD50C\uB77C\uB124\uD0C0\uC5D0 \uC740\uD558"
+  m_EditorClassIdentifier: Assembly-CSharp::BG
+  name: "\uD50C\uB77C\uB124\uD0C0\uC5D0 \uC740\uD558"
+  image: {fileID: 2800000, guid: 68f6102098d599c41bd57663656055cc, type: 3}
+  uv:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1.91

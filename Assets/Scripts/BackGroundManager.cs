@@ -6,39 +6,15 @@ using UnityEngine.UI;
 
 public class BackGroundManager : MonoBehaviour
 {
-    [Header("Image Settings")]
-    public Image[] BackGrounds;
+    public RawImage bgScreen;
+
     public Image FadeScreen;
     public Image FlashScreen;
 
-    private Dictionary<string, Image> BGdict;
-
-    [Header("Raw Image Settings")]
-    public RawImage bgScreen;
-    public Texture2D[] BackGroundSprites;
-    private Dictionary<string, Texture2D> Flashdict;
+    [SerializeField] private BG[] bgs;
 
     private Rect regularRect;
     private Rect longRect;
-
-    private void Start()
-    {
-        regularRect = new Rect(0, 0, 1, 1.91f);
-        longRect = new Rect(0, 0, 1, 1);
-
-        BGdict = new Dictionary<string, Image>();
-        BGdict.Add("플라네타에 은하", BackGrounds[0]);
-        BGdict.Add("워프 오류", BackGrounds[1]);
-        BGdict.Add("가게 추락", BackGrounds[2]);
-
-        Flashdict = new Dictionary<string, Texture2D>();
-        Flashdict.Add("플라네타에 은하", BackGroundSprites[0]);
-        Flashdict.Add("워프 오류", BackGroundSprites[1]);
-        Flashdict.Add("가게 추락", BackGroundSprites[2]);
-
-        bgScreen.texture = BackGroundSprites[0];
-        bgScreen.uvRect.Set(0, 0, 1, 1.91f);
-    }
 
     public void FadeIn(float fadeTime)
     {
@@ -67,35 +43,21 @@ public class BackGroundManager : MonoBehaviour
         }
     }
 
-    private void DisableAllBG()
-    {
-        foreach (var bg in BackGrounds)
-        {
-            bg.gameObject.SetActive(false);
-        }
-    }
-
-    /*public void ChangeBG(string str)
-    {
-        DisableAllBG();
-        BGdict[str].gameObject.SetActive(true);
-    }*/
-
     public void ChangeBG(string str)
     {
-        Texture2D texture = null;
-        if (!Flashdict.TryGetValue(str, out texture))
-            bgScreen.texture = BackGroundSprites[0];
-        
-        if (texture == BackGroundSprites[2])
+        foreach (var bg in bgs)
         {
-            Debug.Log("rect set");
-            //분명 여기 들어가는데, 왜 안되지
-            bgScreen.uvRect.Set(0, 0, 1, 1);
+            if (bg.name == str)
+            {
+                bgScreen.texture = bg.GetTexture();
+                bgScreen.uvRect = bg.GetUV();
+                return;
+            }
+            else
+            {
+                bgScreen.texture = bgs[0].GetTexture();
+                bgScreen.uvRect = bgs[0].GetUV();
+            }
         }
-        else
-            bgScreen.uvRect.Set(0, 0, 1, 1.91f);
-
-        bgScreen.texture = texture;
     }
 }
