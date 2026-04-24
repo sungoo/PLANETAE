@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private Character[] Characters;
     
     [SerializeField] private TMP_Text speakerName;
+    [SerializeField] private RawImage NameSpace;
+
+    [SerializeField] private LinePresenter linePresenter;
 
     private string lastSpeaker;
 
@@ -21,7 +25,12 @@ public class CharacterManager : MonoBehaviour
             return;
 
         if(speakerName.text == "Narration")
+        {
+            //HideSpeakerName();
             characterBodyStanding.gameObject.SetActive(false);
+        }
+        //else
+            //ShowSpeakerName();
 
         //텍스트에 적힌 이름이 달라짐
         lastSpeaker = speakerName.text;
@@ -30,14 +39,24 @@ public class CharacterManager : MonoBehaviour
         {
             if (ch.characterName == lastSpeaker)
             {
-                Debug.Log("get body");
                 characterBodyStanding.texture = ch.GetBodySprite(0);
                 characterBodyStanding.gameObject.SetActive(true);
                 return;
             }
-            Debug.Log("no body");
         }
         //스프라이트가 결국 없음 => 숨김
         characterBodyStanding.gameObject.SetActive(false);
+    }
+
+    public void HideSpeakerName()
+    {
+        linePresenter.showCharacterNameInLine = false;
+        NameSpace.gameObject.SetActive(false);
+    }
+
+    public void ShowSpeakerName()
+    {
+        linePresenter.showCharacterNameInLine= true;
+        NameSpace.gameObject.SetActive(true);
     }
 }

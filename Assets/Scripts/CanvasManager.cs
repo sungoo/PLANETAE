@@ -3,10 +3,11 @@ using Yarn.Unity;
 
 public class CanvasManager : MonoBehaviour
 {
-    public BackGroundManager BackGroundManager;
-    public CharacterManager CharacterManager;
+    [SerializeField] private BackGroundManager BackGroundManager;
+    [SerializeField] private CharacterManager CharacterManager;
 
-    public DialogueRunner DialogueRunner;
+    [SerializeField] private DialogueRunner DialogueRunner;
+    [SerializeField] private LinePresenter LinePresenter;
 
     private void Awake()
     {
@@ -21,6 +22,14 @@ public class CanvasManager : MonoBehaviour
         DialogueRunner.AddCommandHandler<string>(
             "ChangeBG",
             ChangeBG
+        );
+        DialogueRunner.AddCommandHandler<bool>(
+            "AutoDial",
+            AutoAdvenceDial
+        );
+        DialogueRunner.AddCommandHandler<bool>(
+            "Gabble",
+            Gabble
         );
     }
 
@@ -37,5 +46,25 @@ public class CanvasManager : MonoBehaviour
     public void ChangeBG(string str)
     {
         BackGroundManager.ChangeBG(str);
+    }
+
+    public void AutoAdvenceDial(bool isON)
+    {
+        LinePresenter.autoAdvance = isON;
+    }
+    public void Gabble(bool isOn)
+    {
+        if (isOn)
+        {
+            LinePresenter.autoAdvance = isOn;
+            LinePresenter.autoAdvanceDelay = 0.1f;
+            LinePresenter.lettersPerSecond = 600;
+        }
+        else
+        {
+            LinePresenter.autoAdvance = isOn;
+            LinePresenter.autoAdvanceDelay = 1f;
+            LinePresenter.lettersPerSecond = 60;
+        }
     }
 }
