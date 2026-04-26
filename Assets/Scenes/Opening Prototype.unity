@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6626845261567944782, guid: 1fc57dbed3aa18940aa288986f330ecd, type: 3}
       propertyPath: useFadeEffect
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6755357191524407421, guid: 1fc57dbed3aa18940aa288986f330ecd, type: 3}
       propertyPath: m_LocalPosition.x

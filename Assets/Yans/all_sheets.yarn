@@ -7,7 +7,7 @@ title: Start
 
 <<ChangeBG "플라네타에 은하">>
 <<Fade_In 1.0>>
-Narration: 플라네타에 은하계에 도착
+Narration: <color="red">플라네타에 은하계에 도착</color>
 <<description_cue 시스템 메시지. 워프 안정성: (불빛표시 - 노란색/자막: 양호)>>
 Narration: 지금 플라네타에 은하계의 중심 행성 포디나 로 워프할까요?
 Player: 드디어 진입이네....
@@ -16,6 +16,7 @@ Narration: 워프 발ㄷ
 <<description_cue 시스템 메시지가 뜨다 끊긴다. 워프 안정성: 빨간색으로 변하고 계기판이 마구 흔들린다. (자막: 워프 안정성 - 불안정)>>
 Player: ?!
 <<ChangeBG "워프 오류">>
+<<Gabble true>>
 Narration: 불안정한 느낌의 회오리같은 워프로 빨려들어가는 함선.
 Player: '젠장, 말로만 듣던 워프 비상 이탈을 하필 연구하러 와서 겪다니...!'
 Narration: Black out
@@ -23,6 +24,7 @@ Narration: Black out
 <<ChangeBG "가게 추락">>
 Narration: 쾅!!
 Player: 콜록, 콜록...
+<<Gabble false>>
 <<description_cue 유저 시점이 깜빡이며 흔들린다. 낯선 쓰레기 잔해가 보인다.>>
 Narration: (유저 조작 가능한 탑뷰로 이동)
 <<description_cue 유저가 타고온 선체가 작은 가게 지붕에 처박혀 있다. 선체 앞창이 깨져있고 조종석 에어백이 부풀어 유저가 튕겨 떨어졌음을 짐작할 수 있다.>>
