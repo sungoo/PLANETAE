@@ -864,6 +864,7 @@ MonoBehaviour:
   BackGroundManager: {fileID: 7007347588670628462}
   CharacterManager: {fileID: 2791914640363993163}
   DialogueRunner: {fileID: 1461991259573195168}
+  LinePresenter: {fileID: 0}
 --- !u!1 &3496811607266681347
 GameObject:
   m_ObjectHideFlags: 0

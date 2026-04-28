@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Device;
 using Yarn.Unity;
 
 public class CanvasManager : MonoBehaviour
@@ -23,6 +27,10 @@ public class CanvasManager : MonoBehaviour
             "ChangeBG",
             ChangeBG
         );
+        DialogueRunner.AddCommandHandler(
+            "Flash",
+            Flash
+        );
         DialogueRunner.AddCommandHandler<bool>(
             "AutoDial",
             AutoAdvenceDial
@@ -41,6 +49,11 @@ public class CanvasManager : MonoBehaviour
     public void FadeOut(float t)
     {
         BackGroundManager.FadeOut(t);
+    }
+
+    public void Flash()
+    {
+        BackGroundManager.Flash();
     }
 
     public void ChangeBG(string str)
@@ -67,4 +80,5 @@ public class CanvasManager : MonoBehaviour
             LinePresenter.lettersPerSecond = 60;
         }
     }
+
 }

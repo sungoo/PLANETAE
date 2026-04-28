@@ -25,6 +25,13 @@ public class BackGroundManager : MonoBehaviour
         StartCoroutine(Fade(0.0f,1.0f,fadeTime, FadeScreen));
     }
 
+    public void Flash()
+    {
+        //FlashScreen.color = color;
+        StartCoroutine(Fade(0.0f, 1.0f, 0.1f, FlashScreen));
+        StartCoroutine(Fade(1.0f, 0.0f, 0.1f, FlashScreen));
+    }
+
     private IEnumerator Fade(float start, float end, float fadeTime, Image screen)
     {
         float currentTime = 0.0f;
