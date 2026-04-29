@@ -39,6 +39,18 @@ public class CanvasManager : MonoBehaviour
             "Gabble",
             Gabble
         );
+        DialogueRunner.AddCommandHandler(
+            "LookUp",
+            MoveBG
+        );
+        DialogueRunner.AddCommandHandler(
+            "Shake",
+            Shake
+        );
+        DialogueRunner.AddCommandHandler(
+            "ResetBG",
+            ResetBG
+        );
     }
 
     public void FadeIn(float t)
@@ -81,4 +93,17 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
+    public void MoveBG()
+    {
+        BackGroundManager.MoveBG_UP();
+    }
+
+    public void Shake()
+    {
+        BackGroundManager.Shake(); 
+    }
+    public void ResetBG()
+    {
+        BackGroundManager.ResetBG(); 
+    }
 }
