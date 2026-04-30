@@ -16,8 +16,12 @@ public class CharacterManager : MonoBehaviour
 
     private string lastSpeaker;
 
+    private bool autoCharacterStanding = true;
+
     private void Update()
     {
+        if (!autoCharacterStanding)
+            return;
         if (speakerName == null || characterBodyStanding == null)
             return;
 
@@ -58,5 +62,11 @@ public class CharacterManager : MonoBehaviour
     {
         linePresenter.showCharacterNameInLine= true;
         NameSpace.gameObject.SetActive(true);
+    }
+
+    public void AutoSpeakerChange(bool istrue)
+    {
+        autoCharacterStanding = istrue;
+        characterBodyStanding.gameObject.SetActive(istrue);
     }
 }

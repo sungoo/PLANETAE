@@ -8,10 +8,8 @@ public class BackGroundManager : MonoBehaviour
 {
     public enum Direct
     {
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT,
+        Horizontal,
+        Vertical
     }
 
     public RawImage bgScreen;
@@ -78,15 +76,15 @@ public class BackGroundManager : MonoBehaviour
 
     public void MoveBG_UP()
     {
-        StartCoroutine(Move(500, -500, 3.0f, Direct.UP));
+        StartCoroutine(Move(500, -500, 3.0f, Direct.Horizontal));
     }
 
     public void Shake()
     {
-        StartCoroutine(Move(0, 20, 0.5f, Direct.RIGHT));
-        StartCoroutine(Move(20, -20, 0.5f, Direct.RIGHT));
-        StartCoroutine(Move(-20, 20, 0.5f, Direct.RIGHT));
-        StartCoroutine(Move(20, 0, 0.5f, Direct.RIGHT));
+        StartCoroutine(Move(0, 20, 0.5f, Direct.Vertical));
+        StartCoroutine(Move(20, -20, 0.5f, Direct.Vertical));
+        StartCoroutine(Move(-20, 20, 0.5f, Direct.Vertical));
+        StartCoroutine(Move(20, 0, 0.5f, Direct.Vertical));
     }
 
     public void ResetBG()
@@ -108,17 +106,11 @@ public class BackGroundManager : MonoBehaviour
             movement = Mathf.Lerp(start, end, percent);
             switch (direct)
             {
-                case Direct.UP:
+                case Direct.Horizontal:
                     bgScreen.transform.localPosition = new Vector3(0, movement, 0);
                     break;
-                case Direct.DOWN:
-                    bgScreen.transform.localPosition = new Vector3(0, -movement, 0);
-                    break;
-                case Direct.LEFT:
+                case Direct.Vertical:
                     bgScreen.transform.localPosition = new Vector3(movement, 500, 0);
-                    break;
-                case Direct.RIGHT:
-                    bgScreen.transform.localPosition = new Vector3(-movement, 500, 0);
                     break;
             }
 

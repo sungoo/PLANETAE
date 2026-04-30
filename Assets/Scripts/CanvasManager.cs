@@ -3,6 +3,8 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Device;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 using Yarn.Unity;
 
 public class CanvasManager : MonoBehaviour
@@ -13,8 +15,11 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private DialogueRunner DialogueRunner;
     [SerializeField] private LinePresenter LinePresenter;
 
+    [SerializeField] private PlayableDirector[] Events;
+
     private void Awake()
     {
+        // Background
         DialogueRunner.AddCommandHandler<float>(
             "Fade_In",
             FadeIn
@@ -31,6 +36,7 @@ public class CanvasManager : MonoBehaviour
             "Flash",
             Flash
         );
+        // Character
         DialogueRunner.AddCommandHandler<bool>(
             "AutoDial",
             AutoAdvenceDial
@@ -39,6 +45,11 @@ public class CanvasManager : MonoBehaviour
             "Gabble",
             Gabble
         );
+        DialogueRunner.AddCommandHandler<bool>(
+            "AutoSpeakerChange",
+            SetAutoChChange
+        );
+        //Event
         DialogueRunner.AddCommandHandler(
             "LookUp",
             MoveBG
@@ -51,8 +62,12 @@ public class CanvasManager : MonoBehaviour
             "ResetBG",
             ResetBG
         );
+        DialogueRunner.AddCommandHandler<int>(
+            "Play",
+            PlayEvent
+        );
     }
-
+    // Background
     public void FadeIn(float t)
     {
         BackGroundManager.FadeIn(t);
@@ -73,6 +88,7 @@ public class CanvasManager : MonoBehaviour
         BackGroundManager.ChangeBG(str);
     }
 
+    // Character
     public void AutoAdvenceDial(bool isON)
     {
         LinePresenter.autoAdvance = isON;
@@ -93,6 +109,12 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
+    public void SetAutoChChange(bool isOn)
+    {
+        CharacterManager.AutoSpeakerChange(isOn);
+    }
+
+    // Events
     public void MoveBG()
     {
         BackGroundManager.MoveBG_UP();
@@ -105,5 +127,15 @@ public class CanvasManager : MonoBehaviour
     public void ResetBG()
     {
         BackGroundManager.ResetBG(); 
+    }
+
+    public void PlayEvent(int index)
+    {
+        if(index >= Events.Length)
+        {
+            Debug.Log("Wrong Event index");
+            return;
+        }
+        Events[index].Play();
     }
 }
