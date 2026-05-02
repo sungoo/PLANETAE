@@ -56,6 +56,33 @@ public class EventManager : MonoBehaviour
     {
         if (EvMsgCnt >= EvMessasge.Length) return;
 
-        WarpMessege.text = EvMessasge[EvMsgCnt];
+        StartCoroutine(msgUpdate());
+    }
+
+    IEnumerator msgUpdate()
+    {
+        string msg = "";
+        bool sleep = false;
+        int showV = 0;
+        for(int i = 0; i < EvMessasge[EvMsgCnt].Length; i++)
+        {
+            char c = EvMessasge[EvMsgCnt][i];
+            msg += c;
+            if(c == '\n' || c == '<') 
+                sleep = true;
+            if(c=='>')
+                showV++;
+            if (showV == 2)
+            {
+                sleep = false;
+                yield return new WaitForSeconds(0.1f);
+            }
+            if (sleep) continue;
+            if (c == ' ')
+                yield return new WaitForSeconds(0.1f);
+            else
+                yield return new WaitForSeconds(0.05f);
+            WarpMessege.text = msg;
+        }
     }
 }

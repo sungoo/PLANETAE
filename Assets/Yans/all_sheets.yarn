@@ -9,18 +9,18 @@ title: Start
 <<Fade_In 1.0>>
 <<description_cue 플라네타에 은하계에 도착>>
 <<Play 1>>
-<<wait 3>>
+<<wait 4>>
 <<description_cue 워프 안정성 : 양호>>
 <<Play 1>>
-<<wait 3>>
+<<wait 4>>
 <<description_cue 지금 플라네타에 은하계의 중심 행성 포디나 로 워프할까요?>>
 <<Play 1>>
-<<wait 3>>
+<<wait 4>>
 Player: 드디어 진입이네....
 <<AutoSpeakerChange false>>
 <<description_cue 워프 발동 준비. 자리에서 움직이지 마십시오.>>
 <<Play 2>>
-<<wait 6>>
+<<wait 5.5>>
 <<description_cue 워프 안정성 : 불안정>>
 <<AutoSpeakerChange true>>
 Player: ?!
