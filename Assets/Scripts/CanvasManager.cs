@@ -20,6 +20,10 @@ public class CanvasManager : MonoBehaviour
     private void Awake()
     {
         // Background
+        DialogueRunner.AddCommandHandler<bool>(
+            "BGoff",
+            BGoff
+        );
         DialogueRunner.AddCommandHandler<float>(
             "Fade_In",
             FadeIn
@@ -68,6 +72,11 @@ public class CanvasManager : MonoBehaviour
         );
     }
     // Background
+    public void BGoff(bool sett)
+    {
+        BackGroundManager.BGoff(!sett);
+    }
+
     public void FadeIn(float t)
     {
         BackGroundManager.FadeIn(t);

@@ -22,6 +22,11 @@ public class BackGroundManager : MonoBehaviour
     private Rect regularRect;
     private Rect longRect;
 
+    public void BGoff(bool b)
+    {
+        bgScreen.gameObject.SetActive(b);
+    }
+
     public void FadeIn(float fadeTime)
     {
         StartCoroutine(Fade(1.0f,0.0f,fadeTime, FadeScreen));
