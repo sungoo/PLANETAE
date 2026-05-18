@@ -48,9 +48,24 @@ public class PlayerMovement : MonoBehaviour, PlayerMove.IFeildMoveActions
     {
         Vector2 input = context.ReadValue<Vector2>();
         if (context.performed)
+        {
             moveVector = input * speed;
+            PlayerSprite.Walking(true);
+            if (input.x < 0)
+                PlayerSprite.SetDirect(CharacterSprite.Direct.Left);
+            else if (input.x > 0)
+                PlayerSprite.SetDirect(CharacterSprite.Direct.Right);
+            if(input.y < 0)
+                PlayerSprite.SetDirect(CharacterSprite.Direct.Front);
+            else if (input.y > 0)
+                PlayerSprite.SetDirect(CharacterSprite.Direct.Back);
+        }
+        
         if (context.canceled)
+        {
             moveVector = Vector2.zero;
+            PlayerSprite.Walking(false);
+        }
     }
     public void OnInterect(InputAction.CallbackContext context)
     {
