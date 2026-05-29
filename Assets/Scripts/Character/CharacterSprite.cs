@@ -1,3 +1,5 @@
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterSprite : MonoBehaviour
@@ -42,4 +44,6 @@ public class CharacterSprite : MonoBehaviour
     {
         PlayerDirct = direct;
     }
+
+    
 }

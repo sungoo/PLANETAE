@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
+    [SerializeField] private Camera m_Camera;
     [SerializeField] private Transform Player;
 
     [Range(0.5f, 10)]
@@ -11,6 +12,11 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private float cameraOffset = 0.2f;
 
     private float fixedZ = -10;
+
+    private void Awake()
+    {
+        m_Camera = GetComponent<Camera>();
+    }
 
     private void LateUpdate()
     {
@@ -29,4 +35,5 @@ public class CameraMove : MonoBehaviour
         //위치 업데이트
         transform.position = smooth;
     }
+
 }
