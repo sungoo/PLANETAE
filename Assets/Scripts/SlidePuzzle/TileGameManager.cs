@@ -102,4 +102,9 @@ public class TileGameManager : MonoBehaviour
                 board[board.Length-1][i] = Instantiate(board[1][i], new Vector3(transform.position.x + tileOffsetW * (i-1), transform.position.y + tileOffsetH*tileH), Quaternion.identity);
         }
     }
+
+    void UpdateTileLine()
+    {
+
+    }
 }
