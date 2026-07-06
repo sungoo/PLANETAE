@@ -223,6 +223,131 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PuzzleBoard"",
+            ""id"": ""3d2511b6-18b5-46d0-b61e-8e4d639ac00a"",
+            ""actions"": [
+                {
+                    ""name"": ""MousePos"",
+                    ""type"": ""Value"",
+                    ""id"": ""21600687-380d-4a06-a62f-c818b1301749"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveTile"",
+                    ""type"": ""Button"",
+                    ""id"": ""c771c366-49f3-45c5-90e5-09424b710a29"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""64e388d8-9630-4b2a-8bce-b9acc32c642d"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""704ead3b-dcbb-4bd4-bca4-276f003a7d6e"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ffc2daa1-ef6b-4c5f-9c43-dbc9ede57e91"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66b07b26-ee26-40e3-8a5c-931b26bb9b4e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80679553-5208-47ac-9cb4-9e3795b72f69"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c2d3e1f-1ccb-4171-873e-e92d1d814b39"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""724ce238-55c9-4fb4-be16-a5fa9788a8e2"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a39b235-922c-40a8-9304-2247aabf985e"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d6db8de-f8ba-4679-a491-e6f8dc512c8a"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveTile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -231,11 +356,16 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
         m_FeildMove = asset.FindActionMap("FeildMove", throwIfNotFound: true);
         m_FeildMove_Move = m_FeildMove.FindAction("Move", throwIfNotFound: true);
         m_FeildMove_Interect = m_FeildMove.FindAction("Interect", throwIfNotFound: true);
+        // PuzzleBoard
+        m_PuzzleBoard = asset.FindActionMap("PuzzleBoard", throwIfNotFound: true);
+        m_PuzzleBoard_MousePos = m_PuzzleBoard.FindAction("MousePos", throwIfNotFound: true);
+        m_PuzzleBoard_MoveTile = m_PuzzleBoard.FindAction("MoveTile", throwIfNotFound: true);
     }
 
     ~@PlayerMove()
     {
         UnityEngine.Debug.Assert(!m_FeildMove.enabled, "This will cause a leak and performance issues, PlayerMove.FeildMove.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_PuzzleBoard.enabled, "This will cause a leak and performance issues, PlayerMove.PuzzleBoard.Disable() has not been called.");
     }
 
     /// <summary>
@@ -414,6 +544,113 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="FeildMoveActions" /> instance referencing this action map.
     /// </summary>
     public FeildMoveActions @FeildMove => new FeildMoveActions(this);
+
+    // PuzzleBoard
+    private readonly InputActionMap m_PuzzleBoard;
+    private List<IPuzzleBoardActions> m_PuzzleBoardActionsCallbackInterfaces = new List<IPuzzleBoardActions>();
+    private readonly InputAction m_PuzzleBoard_MousePos;
+    private readonly InputAction m_PuzzleBoard_MoveTile;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "PuzzleBoard".
+    /// </summary>
+    public struct PuzzleBoardActions
+    {
+        private @PlayerMove m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public PuzzleBoardActions(@PlayerMove wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "PuzzleBoard/MousePos".
+        /// </summary>
+        public InputAction @MousePos => m_Wrapper.m_PuzzleBoard_MousePos;
+        /// <summary>
+        /// Provides access to the underlying input action "PuzzleBoard/MoveTile".
+        /// </summary>
+        public InputAction @MoveTile => m_Wrapper.m_PuzzleBoard_MoveTile;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_PuzzleBoard; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="PuzzleBoardActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(PuzzleBoardActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="PuzzleBoardActions" />
+        public void AddCallbacks(IPuzzleBoardActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PuzzleBoardActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PuzzleBoardActionsCallbackInterfaces.Add(instance);
+            @MousePos.started += instance.OnMousePos;
+            @MousePos.performed += instance.OnMousePos;
+            @MousePos.canceled += instance.OnMousePos;
+            @MoveTile.started += instance.OnMoveTile;
+            @MoveTile.performed += instance.OnMoveTile;
+            @MoveTile.canceled += instance.OnMoveTile;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="PuzzleBoardActions" />
+        private void UnregisterCallbacks(IPuzzleBoardActions instance)
+        {
+            @MousePos.started -= instance.OnMousePos;
+            @MousePos.performed -= instance.OnMousePos;
+            @MousePos.canceled -= instance.OnMousePos;
+            @MoveTile.started -= instance.OnMoveTile;
+            @MoveTile.performed -= instance.OnMoveTile;
+            @MoveTile.canceled -= instance.OnMoveTile;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PuzzleBoardActions.UnregisterCallbacks(IPuzzleBoardActions)" />.
+        /// </summary>
+        /// <seealso cref="PuzzleBoardActions.UnregisterCallbacks(IPuzzleBoardActions)" />
+        public void RemoveCallbacks(IPuzzleBoardActions instance)
+        {
+            if (m_Wrapper.m_PuzzleBoardActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="PuzzleBoardActions.AddCallbacks(IPuzzleBoardActions)" />
+        /// <seealso cref="PuzzleBoardActions.RemoveCallbacks(IPuzzleBoardActions)" />
+        /// <seealso cref="PuzzleBoardActions.UnregisterCallbacks(IPuzzleBoardActions)" />
+        public void SetCallbacks(IPuzzleBoardActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PuzzleBoardActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PuzzleBoardActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="PuzzleBoardActions" /> instance referencing this action map.
+    /// </summary>
+    public PuzzleBoardActions @PuzzleBoard => new PuzzleBoardActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "FeildMove" which allows adding and removing callbacks.
     /// </summary>
@@ -435,5 +672,27 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInterect(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PuzzleBoard" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="PuzzleBoardActions.AddCallbacks(IPuzzleBoardActions)" />
+    /// <seealso cref="PuzzleBoardActions.RemoveCallbacks(IPuzzleBoardActions)" />
+    public interface IPuzzleBoardActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "MousePos" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMousePos(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MoveTile" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveTile(InputAction.CallbackContext context);
     }
 }

@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TileBase : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class TileBase : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private int[] LinePos;
+    private bool is_selected = false;
 
     private void Awake()
     {
@@ -33,4 +36,31 @@ public class TileBase : MonoBehaviour
     //타일게임 메니져의 라인 업데이트 호출
     //라인 업데이트에선 바뀐 타일의 LinePos를 통해 해당 라인의 타일을 업데이트
     //일단 드래그 보다 선택하고 방향키로 한 칸 씩 이동시키는 걸로 구현해볼것.
+
+    public void PointerEnter()
+    {
+        Debug.Log("Enter");
+        if(!is_selected)
+            spriteRenderer.color = Color.bisque;
+    }
+    public void PointerExit()
+    {
+        Debug.Log("Exit");
+        if(!is_selected)
+            spriteRenderer.color = Color.white;
+    }
+    public void PointerClick()
+    {
+        is_selected = !is_selected;
+        if (is_selected)
+        {
+            spriteRenderer.color = Color.orange;
+            Debug.Log("Selected");
+        }
+        else
+        {
+            spriteRenderer.color = Color.olive;
+            Debug.Log("Deselected");
+        }
+    }
 }

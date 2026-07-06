@@ -161,18 +161,6 @@ TextureImporter:
   - first:
       213: -1653609952875210015
     second: field_01_player_52
-  - first:
-      213: 392585279435905956
-    second: field_01_player_53
-  - first:
-      213: 7059597657215803748
-    second: field_01_player_54
-  - first:
-      213: -5401435803042860547
-    second: field_01_player_55
-  - first:
-      213: -7928800349860695925
-    second: field_01_player_56
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
