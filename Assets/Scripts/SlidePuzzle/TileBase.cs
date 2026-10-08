@@ -33,7 +33,7 @@ public class TileBase : MonoBehaviour
 
     private void Start()
     {
-        InitTile();
+        UpdateTile();
     }
 
     public void SetLinePos(int h, int w)
@@ -43,7 +43,7 @@ public class TileBase : MonoBehaviour
         LinePos[1] = w;
     }
 
-    public void InitTile()
+    public void UpdateTile()
     {
         switch (type)
         {

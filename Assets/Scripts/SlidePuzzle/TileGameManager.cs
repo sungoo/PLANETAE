@@ -76,12 +76,16 @@ public class TileGameManager : MonoBehaviour
         TileBase tempTile = temp.GetComponent<TileBase>();
         tempTile.SetLinePos(h, w);
         tempTile.type = type;
-        if(type == TileBase.TileType.Normal)
+        if(!target_T)
         {
             tempTile.sign = demoN;
             demoN++;
         }
-        tempTile.InitTile();
+        else
+        {
+            tempTile.sign = target_T.GetComponent<TileBase>().sign;
+        }
+        tempTile.UpdateTile();
 
         return temp;
     }
