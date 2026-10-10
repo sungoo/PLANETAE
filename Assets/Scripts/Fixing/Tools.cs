@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Tools : MonoBehaviour
 {
+    [SerializeField]
+    private ToolManager.MouseState whatToolis;
+
     private Vector2 firstPos;
     private Vector2 mousePos;
     [SerializeField]
@@ -15,7 +18,6 @@ public class Tools : MonoBehaviour
     private float moveVelue = 0.5f;
 
     private bool mouseClicked = false;
-    private static bool mouseHoldingSomething = false;
 
     [SerializeField]
     private GameObject ReturnBtn;
@@ -43,14 +45,14 @@ public class Tools : MonoBehaviour
 
     public void MouseHold()
     {
-        if (mouseClicked || mouseHoldingSomething)
+        if (mouseClicked || !ToolManager.Instance.IsHandFree())
             return;
         transform.position = pickMeMove;
         Debug.Log("Enter");
     }
     public void MouseOut()
     {
-        if (mouseClicked || mouseHoldingSomething)
+        if (mouseClicked || !ToolManager.Instance.IsHandFree())
             return;
         transform.position = firstPos;
         Debug.Log("Exit");
@@ -58,10 +60,10 @@ public class Tools : MonoBehaviour
 
     public void MouseClicked()
     {
-        if (mouseHoldingSomething)
+        if (!ToolManager.Instance.IsHandFree())
             return;
         mouseClicked = true;
-        mouseHoldingSomething=true;
+        ToolManager.Instance.ChangeTool(whatToolis);
         ReturnBtn.SetActive(true);
 
         BoxCollider2D.enabled = false;
@@ -71,7 +73,7 @@ public class Tools : MonoBehaviour
     public void ReturnBtnClicked()
     {
         mouseClicked=false;
-        mouseHoldingSomething=false;
+        ToolManager.Instance.ChangeTool(ToolManager.MouseState.None);
         ReturnBtn.SetActive(false);
         transform.position = firstPos;
 

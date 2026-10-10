@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bbfdd8b32ee454db486c9fb24964f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools
+  whatToolis: 5
   mouseOffset: {x: 0.7, y: -1.2}
   clickRotation: {x: 0, y: 0, z: 30}
   returnRotation: {x: 0, y: 0, z: -30}
@@ -916,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bbfdd8b32ee454db486c9fb24964f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools
+  whatToolis: 1
   mouseOffset: {x: 0.9, y: 1.3}
   clickRotation: {x: 0, y: 0, z: 150}
   returnRotation: {x: 0, y: 0, z: -150}
@@ -1347,6 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bbfdd8b32ee454db486c9fb24964f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools
+  whatToolis: 2
   mouseOffset: {x: 0.5, y: 1}
   clickRotation: {x: 0, y: 0, z: 150}
   returnRotation: {x: 0, y: 0, z: -150}
@@ -2106,6 +2109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bbfdd8b32ee454db486c9fb24964f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools
+  whatToolis: 3
   mouseOffset: {x: 0.9, y: -0.4}
   clickRotation: {x: 0, y: 0, z: 30}
   returnRotation: {x: 0, y: 0, z: -30}
@@ -2266,6 +2270,51 @@ Transform:
   - {fileID: 479006119}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1629600865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629600867}
+  - component: {fileID: 1629600866}
+  m_Layer: 0
+  m_Name: ToolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1629600866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629600865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c61221467977524bb254f3c062e5e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolManager
+  NowHolding: 0
+--- !u!4 &1629600867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629600865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1661858483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2373,6 +2422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bbfdd8b32ee454db486c9fb24964f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tools
+  whatToolis: 4
   mouseOffset: {x: 1.6, y: -0.6}
   clickRotation: {x: 0, y: 0, z: 30}
   returnRotation: {x: 0, y: 0, z: -30}
@@ -2914,3 +2964,4 @@ SceneRoots:
   - {fileID: 1927108998}
   - {fileID: 1585144327}
   - {fileID: 1998390807}
+  - {fileID: 1629600867}
