@@ -11,6 +11,7 @@ public class ToFixThings : MonoBehaviour
         {
             gameObject.SetActive(false);
             //없어졌다는걸 이벤트로 쏘기
+            ToolManager.Instance.BraoadCast();
         }
     }
 }

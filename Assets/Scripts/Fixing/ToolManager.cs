@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ToolManager : MonoBehaviour
@@ -28,8 +30,14 @@ public class ToolManager : MonoBehaviour
 
     public static ToolManager Instance;
 
+    //이벤트 수신자 목록
+    private List<Action> subscribers = new List<Action>();
+    //목록을 여러개로 나눠 관리할 필요가 있을듯... 들을 애들만 듣게..
+
     private void Awake()
     {
+        Debug.Log("ToolManager Started.");
+
         if (Instance == null)
         {
             Instance = this;
@@ -58,5 +66,32 @@ public class ToolManager : MonoBehaviour
     public int WhatAmIHolding()
     {
         return (int)NowHolding;
+    }
+
+    //이벤트 수신자 등록
+    public void Subscribe(Action subscriber)
+    {
+        Debug.Log("Add Subscriber!");
+        subscribers.Add(subscriber);
+    }
+    //이벤트 수신자 해지
+    public void UnSubscribe(Action subscriber)
+    {
+        Debug.Log("Quit Subscriber!");
+        subscribers.Remove(subscriber);
+    }
+    //모든 수신자 해지
+    public void ClearAllSubscrivers()
+    {
+        subscribers.Clear();
+    }
+    //메시지 발신
+    public void BraoadCast()
+    {
+        Debug.Log("Broadcast for All of Subscribers! : "+subscribers.Count);
+        foreach (var action in subscribers)
+        {
+            action();
+        }
     }
 }

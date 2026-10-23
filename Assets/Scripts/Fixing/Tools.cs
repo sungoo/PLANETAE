@@ -48,14 +48,14 @@ public class Tools : MonoBehaviour
         if (mouseClicked || !ToolManager.Instance.IsHandFree())
             return;
         transform.position = pickMeMove;
-        Debug.Log("Enter");
+        //Debug.Log("Enter");
     }
     public void MouseOut()
     {
         if (mouseClicked || !ToolManager.Instance.IsHandFree())
             return;
         transform.position = firstPos;
-        Debug.Log("Exit");
+        //Debug.Log("Exit");
     }
 
     public void MouseClicked()
