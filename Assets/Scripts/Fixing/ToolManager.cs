@@ -31,8 +31,7 @@ public class ToolManager : MonoBehaviour
     public static ToolManager Instance;
 
     //이벤트 수신자 목록
-    private List<Action> subscribers = new List<Action>();
-    //목록을 여러개로 나눠 관리할 필요가 있을듯... 들을 애들만 듣게..
+    private Dictionary<int, Action> Bindings = new Dictionary<int, Action>();
 
     private void Awake()
     {
@@ -69,29 +68,34 @@ public class ToolManager : MonoBehaviour
     }
 
     //이벤트 수신자 등록
-    public void Subscribe(Action subscriber)
+    public void Subscribe(Action subscriber, int sub_num)
     {
-        Debug.Log("Add Subscriber!");
-        subscribers.Add(subscriber);
+        if (Bindings.ContainsKey(sub_num))
+        {
+            Debug.LogError(sub_num + "번은 이미 할당됨");
+            return;
+        }
+        else
+        {
+            Debug.Log("Add Subscriber!");
+            Bindings.Add(sub_num,subscriber);
+        }
     }
     //이벤트 수신자 해지
-    public void UnSubscribe(Action subscriber)
+    public void UnSubscribe(int sub_num)
     {
         Debug.Log("Quit Subscriber!");
-        subscribers.Remove(subscriber);
+        Bindings.Remove(sub_num);
     }
     //모든 수신자 해지
     public void ClearAllSubscrivers()
     {
-        subscribers.Clear();
+        Bindings.Clear();
     }
     //메시지 발신
-    public void BraoadCast()
+    public void BraoadCast(int toWho)
     {
-        Debug.Log("Broadcast for All of Subscribers! : "+subscribers.Count);
-        foreach (var action in subscribers)
-        {
-            action();
-        }
+        Debug.Log("Broadcast for : "+toWho);
+        Bindings[toWho]();
     }
 }

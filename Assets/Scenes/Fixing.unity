@@ -546,6 +546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToFixThings
   thisTingis: 4
+  itBinded: -1
 --- !u!114 &342873354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,6 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToFixThings
   thisTingis: 1
+  itBinded: 0
 --- !u!114 &669578383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,6 +1235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToFixThings
   thisTingis: 3
+  itBinded: -1
 --- !u!114 &756218744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1847,6 +1850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToFixThings
   thisTingis: 1
+  itBinded: 0
 --- !u!114 &977297545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3196,6 +3200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff182e2cd8f2c94b86da3234bad08c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pannel
+  pannelNumber: 0
   bindThings:
   - {fileID: 977297544}
   - {fileID: 669578382}
@@ -3370,6 +3375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToFixThings
   thisTingis: 2
+  itBinded: -1
 --- !u!114 &1446914083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4225,6 +4231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToFixThings
   thisTingis: 5
+  itBinded: -1
 --- !u!114 &1958947759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4342,6 +4349,6 @@ SceneRoots:
   - {fileID: 1080620869}
   - {fileID: 1927108998}
   - {fileID: 1585144327}
-  - {fileID: 1998390807}
-  - {fileID: 1629600867}
   - {fileID: 1038909904}
+  - {fileID: 1629600867}
+  - {fileID: 1998390807}

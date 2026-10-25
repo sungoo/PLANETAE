@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Pannel : MonoBehaviour
 {
+    [Tooltip("pannel number = it binded")]
+    public int pannelNumber;
     [SerializeField]
     private ToFixThings[] bindThings;
     private int bindThingsNum = 0;
@@ -9,7 +11,7 @@ public class Pannel : MonoBehaviour
     private void Start()
     {
         bindThingsNum = bindThings.Length;
-        ToolManager.Instance.Subscribe(BindThingReashed);
+        ToolManager.Instance.Subscribe(BindThingReashed, pannelNumber);
     }
 
     private void Update()
